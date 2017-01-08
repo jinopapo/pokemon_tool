@@ -1,0 +1,3 @@
+battle_homepage:
+    path:     /
+    defaults: { _controller: BattleBundle:Top:index }
