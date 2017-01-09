@@ -1,1 +1,18 @@
-Hello World!
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href={{ asset("bundles/battle/css/stylish-portfolio.css") }} rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>ポケモンバトル記録ツール</h1>
+            <!-- <a href="#about" class="btn btn-dark btn-lg">Find Out More</a> -->
+        </div>
+    </header>
+{% endblock %}
