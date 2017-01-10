@@ -8,6 +8,6 @@ class TopController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BattleBundle:Top:index.html.twig');
+        return $this->render('BattleBundle:Top:update.html.twig');
     }
 }
