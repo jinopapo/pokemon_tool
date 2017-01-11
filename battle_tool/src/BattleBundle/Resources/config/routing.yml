@@ -1,3 +1,7 @@
 battle_homepage:
     path:     /
     defaults: { _controller: BattleBundle:Top:index }
+
+battle_hoge:
+    path:     /hoge
+    defaults: { _controller: BattleBundle:Top:index }
