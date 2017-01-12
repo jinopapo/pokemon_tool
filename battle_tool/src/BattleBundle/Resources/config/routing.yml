@@ -3,5 +3,5 @@ battle_homepage:
     defaults: { _controller: BattleBundle:Top:index }
 
 battle_hoge:
-    path:     /hoge
-    defaults: { _controller: BattleBundle:Top:index }
+    path:     /user/{id}
+    defaults: { _controller: BattleBundle:Top:userTop }

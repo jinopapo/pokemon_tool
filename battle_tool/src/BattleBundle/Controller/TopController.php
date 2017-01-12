@@ -10,4 +10,9 @@ class TopController extends Controller
     {
         return $this->render('BattleBundle:Top:index.html.twig');
     }
+
+    public function userTopAction()
+    {
+        return $this->render('BattleBundle:Top:user_top.html.twig');
+    }
 }
