@@ -1,0 +1,38 @@
+{% extends 'BattleBundle:Top:base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href={{ asset("bundles/battle/css/party_new.css") }} rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <ul class="nav nav-tabs">
+        {% for i in 0..5 %}
+            {% if i == 0 %}
+                <li class="active">
+            {% else %}
+                    <li>
+            {% endif %}
+            <a href="#tab{{i}}" data-toggle="tab">{{i+1}}体目</a>
+                    </li>
+        {% endfor %}
+    </ul>
+    
+    <div class="tab-content">
+        {% for i in 0..5 %}
+            {% if i == 0 %}
+                <div class="tab-pane active" id="tab{{i}}">
+            {% else %}
+                <div class="tab-pane" id="tab{{i}}">
+            {% endif %}
+            test{{i}}
+                </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
