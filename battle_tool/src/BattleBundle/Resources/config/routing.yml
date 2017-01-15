@@ -9,3 +9,7 @@ battle_party_top:
 battle_party_new:
     path:     /party/new
     defaults: { _controller: BattleBundle:Top:partyNew }
+
+battle_battle:
+    path:     /battle
+    defaults: { _controller: BattleBundle:Top:battle }

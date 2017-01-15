@@ -20,4 +20,9 @@ class TopController extends Controller
     {
         return $this->render('BattleBundle:Top:party_new.html.twig');
     }
+
+    public function battleAction()
+    {
+        return $this->render('BattleBundle:Top:battle.html.twig');
+    }
 }
