@@ -1,7 +1,7 @@
 battle:
     resource: "@BattleBundle/Controller"
     type:   annotation
-
+    
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
