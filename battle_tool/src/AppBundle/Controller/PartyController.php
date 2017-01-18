@@ -22,5 +22,4 @@ class PartyController extends Controller
     {
         return $this->render('party/new.html.twig');
     }
-
 }

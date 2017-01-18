@@ -1,15 +1,3 @@
 battle_homepage:
     path:     /
     defaults: { _controller: BattleBundle:Top:index }
-
-battle_party_top:
-    path:     /user/{id}
-    defaults: { _controller: BattleBundle:Top:userTop }
-
-battle_party_new:
-    path:     /party/new
-    defaults: { _controller: BattleBundle:Top:partyNew }
-
-battle_battle:
-    path:     /battle
-    defaults: { _controller: BattleBundle:Top:battle }

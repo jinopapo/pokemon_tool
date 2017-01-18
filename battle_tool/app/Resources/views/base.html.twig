@@ -22,18 +22,18 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/">top</a>
+                        <a class="navbar-brand" href={{ path("toppage") }}>top</a>
                     </div>
 
                     <!-- Top Menu Items -->
                     <ul class="nav navbar-right top-nav">
-                        <li><a href="/battle"><i class="fa fa-user"></i>対戦</a></li>
+                        <li><a href={{ path("battle_index") }}><i class="fa fa-user"></i>対戦</a></li>
                         <li><a href={{ path("party_index") }}><i class="fa fa-user"></i>パーティー</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/user/1"><i class="fa fa-fw fa-user"></i> Profile</a>
+                                    <a href=#><i class="fa fa-fw fa-user"></i> Profile</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
