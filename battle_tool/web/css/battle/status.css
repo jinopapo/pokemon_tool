@@ -1,0 +1,10 @@
+.selected,
+.first-selected
+{
+    color:#e06d4d
+}
+
+.first-selected
+{
+    text-decoration: underline
+}

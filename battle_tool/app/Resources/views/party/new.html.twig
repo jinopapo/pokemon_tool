@@ -12,13 +12,13 @@
 {% block content %}
     <ul class="nav nav-tabs">
         {% for i in 0..5 %}
+            {% set tab_status= ""  %}
             {% if i == 0 %}
-                <li class="active">
-            {% else %}
-                    <li>
+                {% set tab_status= "active" %}
             {% endif %}
-            <a href="#tab{{i}}" data-toggle="tab">{{i+1}}体目</a>
-                    </li>
+            <li class={{ tab_status }}>
+                <a href="#tab{{i}}" data-toggle="tab">{{i+1}}体目</a>
+            </li>
         {% endfor %}
     </ul>
     

@@ -19,7 +19,8 @@ class PathTest extends WebTestCase
         return array( array('/'),
                       array('/party'),
                       array('/party/new'),
-                      array('/battle')
+                      array('/battle'),
+                      array('/battle/status'),
         );
     }
 }

@@ -1,0 +1,81 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href={{ asset("css/battle/status.css") }} rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        {% set name = ['自分','相手'] %}
+        {% for i in 0..1 %}
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ name[i] }}のパーティー
+                    </div>
+                    <div class="panel-body">
+                        {% set party = [
+                            ['ガブリアス','ボーマンダ','カプコケコ','ギャラドス','ミミッキュ','ギルガルド'],
+                            ['カプレヒレ','カプコケコ','カプテテフ','カプブルル','マッシブーン','ウツロイド']] %}
+                        {% set select =[
+                            [2,1,1,0,0,0],
+                            [0,0,0,0,0,0]
+                        ]%}
+                        {% for j in 0..2 %}
+                            <div class="row">
+                                {% for k in 0..1 %}
+                                <div class="col-lg-6">
+                                    {% set status=""  %}
+                                    {% if select[i][2*j+k] == 1 %}
+                                        {% set status="selected" %}
+                                    {% elseif select[i][2*j+k] == 2 %}
+                                        {% set status="first-selected" %}
+                                    {% endif %}
+                                    {% if i == 1 %}
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">{{ party[i][2*j+k]}}
+                                        </label>
+                                    {% else %}
+                                        <div class={{ status }}>
+                                            {{ party[i][2*j+k]}}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <ul class="nav nav-tabs">
+        {% set selected_party=['ガブリアス','ボーマンダ','カプコケコ'] %}
+        {% for i in 0..2 %}
+            {% set tab_status= ""  %}
+            {% if i == 0 %}
+                {% set tab_status= "active" %}
+            {% endif %}
+            <li class={{ tab_status }}>
+                <a href="#tab{{i}}" data-toggle="tab">{{ selected_party[i] }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <div class="tab-content">
+        {% for i in 0..2 %}
+            {% set tab_status= ""  %}
+            {% if i == 0 %}
+                {% set tab_status= "active" %}
+            {% else %}
+            {% endif %}
+            <div class="tab-pane {{ tab_status }}" id="tab{{i}}">
+                test{{i}}
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
