@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PartyController extends Controller
 {
     /**
-     *@Route("/party", name="party_index")
+     * @Route("/party", name="party_index")
      */
     public function indexAction()
     {
@@ -16,10 +16,18 @@ class PartyController extends Controller
     }
 
     /**
-     *@Route("/party/new", name="party_new")
+     * @Route("/party/new", name="party_new")
      */
     public function newAction()
     {
         return $this->render('party/new.html.twig');
+    }
+
+    /**
+     * @Route("/party/prop", name="party_prop")
+     */
+    public function propAction()
+    {
+        return $this->render('party/prop.html.twig');
     }
 }
