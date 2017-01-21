@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests;
+namespace Tests\AppBundle;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,6 +12,24 @@ class PathTest extends WebTestCase
     public function testPageIsSuccessful($url)
     {
         $client = self::createClient(); $client->request('GET', $url);
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+
+    /**
+     * @dataProvider urlProvider
+     */
+    public function testHeaderPath($url)
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', $url);
+        $link = $crawler->filter('a:contains("top")')->link();
+        $client->click($link);
+        $this->assertTrue($client->getResponse()->isSuccessful());
+        $link = $crawler->filter('a:contains("パーティー")')->link();
+        $client->click($link);
+        $this->assertTrue($client->getResponse()->isSuccessful());
+        $link = $crawler->filter('a:contains("対戦")')->link();
+        $client->click($link);
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
