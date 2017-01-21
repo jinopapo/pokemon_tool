@@ -1,1 +1,71 @@
 {% extends '::base.html.twig' %}
+
+{% block content %}
+    {% set party = '厨ポケ' %}
+    <h1 class="page-header"> {{ party }} </h1>
+    {% set pokemonItem = ['弱点保険','メガ','ドラゴンZ','メガ','きあいのタスキ','いのちのたま'] %}
+    {% set name = ['ギルガルド','ボーマンダ','ガブリアス','ギャラドス','ミミッキュ','カプコケコ'] %}
+    {% for i in 0..5 %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ name[i] }}
+            </div>
+            <div class="panel-body">
+                <div class="pokemon-item">
+                    持ち物@{{ pokemonItem[i] }}
+                </div>
+                <div class="status-param">
+                    <div class="row">
+                        <div class="col-lg-1">
+                            種族値
+                        </div>
+                        <div class="col-lg-1">
+                            H
+                        </div>
+                        <div class="col-lg-1">
+                            A
+                        </div>
+                        <div class="col-lg-1">
+                            B
+                        </div>
+                        <div class="col-lg-1">
+                            C
+                        </div>
+                        <div class="col-lg-1">
+                            D
+                        </div>
+                        <div class="col-lg-1">
+                            S
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-1">
+                            努力値
+                        </div>
+                        <div class="col-lg-1">
+                            H
+                        </div>
+                        <div class="col-lg-1">
+                            A
+                        </div>
+                        <div class="col-lg-1">
+                            B
+                        </div>
+                        <div class="col-lg-1">
+                            C
+                        </div>
+                        <div class="col-lg-1">
+                            D
+                        </div>
+                        <div class="col-lg-1">
+                            S
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href={{ path("party_new") }}>変更</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
