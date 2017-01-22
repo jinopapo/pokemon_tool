@@ -11,7 +11,7 @@
 
 {% block content %}
     <h1 class="page-header"> パーティー一覧 </h1>
-    <a class="btn btn-default" href={{ path("party_new") }} role="button">パーティー追加</a>
+    <a class="btn btn-default party-new" href={{ path("party_new") }} role="button">パーティー追加</a>
     <div class="panel panel-default">
         <div class="panel-heading">
             厨ポケ
@@ -39,8 +39,8 @@ s                <div class="col-lg-2">
             </div>
         </div>
         <div class="panel-footer">
-            <a href={{ path("party_prop") }}>詳細</a>
-            <a href="/battle">このパーティで対戦</a>
+            <a class="party-prop" href={{ path("party_prop") }}>詳細</a>
+            <a class="battle" href="/battle">このパーティで対戦</a>
         </div>
     </div>
     <div class="panel panel-default">
