@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class BattleControllerTest extends WebTestCase
 {
-        /**
+    /**
      * @dataProvider urlProvider
      */
     public function testIsSuccessful($url)
@@ -44,9 +44,26 @@ class BattleControllerTest extends WebTestCase
     public function testLinks($url,$attr,$link)
     {
         $client = self::createClient();
+
         $crawler = $client->request('GET', $url);
         $path = $crawler->filter($attr)->attr('href');
         $this->assertContains($path, $link);
+    }
+
+    /**
+     * @depends testLinks
+     * @dataProvider partyProvider
+     */
+    public function testIndexAction($id,$party)
+    {
+        $client = self::createClient();
+
+        $crawler = $client->request('GET', "/battle?id=$id");
+        $names = $crawler->filter('.poke-name');
+        $names = $crawler->each(function ($node, $i) {
+            return $node->text();
+        });
+        $this->assertArraySubset($party, $names);
     }
 
     public function urlProvider() {
@@ -63,5 +80,10 @@ class BattleControllerTest extends WebTestCase
     public function linkProvider() {
         return array( array('/battle','.battle-status','/battle/status'),
          );
+    }
+
+    public function partyProvider()
+    {
+        return array( array(0,['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']));
     }
 }
