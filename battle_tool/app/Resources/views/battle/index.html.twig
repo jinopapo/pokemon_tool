@@ -11,12 +11,46 @@
 
 {% block content %}
     <div class="row">
-        {% set str = ['自分','相手'] %}
-        {% for name in str %}
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{name}}のパーティー
+                    自分のパーティー
+                </div>
+                {% if id == NULL %}
+                <div class="panel-body">
+                    {% for i in 0..2 %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type=”text” class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <input type=”text” class="form-control">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="panel-body">
+                    {% set party=[['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']] %}
+                    {% for i in 0..2 %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="poke-name">{{ party[id][i*2] }}</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="poke-name">{{ party[id][i*2+1] }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    相手のパーティー
                 </div>
                 <div class="panel-body">
                     {% for i in 0..2 %}
@@ -32,7 +66,7 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
+
     </div>
     <a class="btn btn-default battle-status" href={{ path("battle_status") }} role="button">対戦へ</a>
 {% endblock %}

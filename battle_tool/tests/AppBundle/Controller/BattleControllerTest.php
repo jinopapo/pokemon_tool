@@ -60,7 +60,7 @@ class BattleControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', "/battle?id=$id");
         $names = $crawler->filter('.poke-name');
-        $names = $crawler->each(function ($node, $i) {
+        $names = $names->each(function ($node, $i) {
             return $node->text();
         });
         $this->assertArraySubset($party, $names);
