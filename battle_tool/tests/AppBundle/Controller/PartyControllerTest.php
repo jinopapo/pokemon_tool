@@ -46,6 +46,7 @@ class PartyControllerTest extends WebTestCase
         $client = self::createClient();
         $crawler = $client->request('GET', $url);
         $path = $crawler->filter($attr)->attr('href');
+        $path = explode('?', $path)[0];
         $this->assertContains($path, $link);
     }
 

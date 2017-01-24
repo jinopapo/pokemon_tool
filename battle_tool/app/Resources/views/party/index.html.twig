@@ -39,8 +39,8 @@ s                <div class="col-lg-2">
             </div>
         </div>
         <div class="panel-footer">
-            <a class="party-prop" href={{ path("party_prop") }}>詳細</a>
-            <a class="battle" href="/battle">このパーティで対戦</a>
+            <a class="party-prop" href="{{ path('party_prop') }}">詳細</a>
+            <a class="battle" href="{{ path('battle_index') }}?id=0">このパーティで対戦</a>
         </div>
     </div>
     <div class="panel panel-default">
@@ -69,7 +69,7 @@ s                <div class="col-lg-2">
         </div>
         <div class="panel-footer">
             <a href={{ path("party_prop") }}>詳細</a>
-            <a href="/battle">このパーティで対戦</a>
+            <a href="{{ path('battle_index') }}?id=1">このパーティで対戦</a>
         </div>
     </div>
 {% endblock %}
