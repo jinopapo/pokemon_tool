@@ -15,8 +15,16 @@ class BattleController extends Controller
     public function indexAction(Request $request)
     {
         $id = $request->query->get('id');
+        $party = [
+            ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']
+        ];
+
+        if ( $id >= count($party))
+        {
+            throw $this->createNotFoundException('');
+        }
         return $this->render('battle/index.html.twig',[
-            'id' => $id,
+            'party' => $party[$id],
         ]);
     }
 

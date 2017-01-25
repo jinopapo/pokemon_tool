@@ -16,35 +16,18 @@
                 <div class="panel-heading">
                     自分のパーティー
                 </div>
-                {% if id == NULL %}
                 <div class="panel-body">
                     {% for i in 0..2 %}
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type=”text” class="form-control">
+                                <div class="poke-name">{{ party[i*2] }}</div>
                             </div>
                             <div class="col-lg-6">
-                                <input type=”text” class="form-control">
+                                <div class="poke-name">{{ party[i*2+1] }}</div>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
-                {% else %}
-                <div class="panel-body">
-                    {% set party=[['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']] %}
-                    {% for i in 0..2 %}
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="poke-name">{{ party[id][i*2] }}</div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="poke-name">{{ party[id][i*2+1] }}</div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                {% endif %}
             </div>
         </div>
         <div class="col-lg-6">
