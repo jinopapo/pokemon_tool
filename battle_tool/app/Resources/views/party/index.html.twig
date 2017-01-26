@@ -27,8 +27,8 @@
             </div>
         </div>
         <div class="panel-footer">
-            <a class="party-prop" href="{{ path('party_prop') }}">詳細</a>
-            <a class="battle" href="{{ path('battle_index') }}?id=0">このパーティで対戦</a>
+            <a class="party-prop" href="{{ path('party_prop') }}?id={{ i }}">詳細</a>
+            <a class="battle" href="{{ path('battle_index') }}?id={{i}}">このパーティで対戦</a>
         </div>
     </div>
     {% endfor %}

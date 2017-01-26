@@ -9,11 +9,11 @@ class BattleControllerTest extends WebTestCase
     /**
      * @dataProvider urlProvider
      */
-    public function testIsSuccessful($url)
+    public function testIsSuccessful($url,$status)
     {
         $client = self::createClient();
         $crawler = $client->request('GET', $url);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals($status, $client->getResponse()->getStatusCode());
     }
 
 
@@ -75,8 +75,9 @@ class BattleControllerTest extends WebTestCase
     }
 
     public function urlProvider() {
-        return array( array('/battle?id=0'),
-                      array('/battle/status'),
+        return array( array('/battle?id=0',200),
+                      array('/battle',404),
+                      array('/battle/status',200),
         );
     }
 

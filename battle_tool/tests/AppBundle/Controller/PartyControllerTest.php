@@ -9,11 +9,11 @@ class PartyControllerTest extends WebTestCase
     /**
      * @dataProvider urlProvider
      */
-    public function testIsSuccessful($url)
+    public function testIsSuccessful($url,$status)
     {
         $client = self::createClient();
         $crawler = $client->request('GET', $url);
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals($status, $client->getResponse()->getStatusCode());
     }
 
 
@@ -58,9 +58,10 @@ class PartyControllerTest extends WebTestCase
     }
 
     public function urlProvider() {
-        return array( array('/party'),
-                      array('/party/new'),
-                      array('/party/prop'),
+        return array( array('/party',200),
+                      array('/party/new',200),
+                      array('/party/prop?id=0',200),
+                      array('/party/prop',404),
         );
     }
 
@@ -68,7 +69,7 @@ class PartyControllerTest extends WebTestCase
         return array( array('/party','party-new'),
                       array('/party','party-prop'),
                       array('/party','battle'),
-                      array('/party/prop','party-new'),
+                      array('/party/prop?id=0','party-new'),
         );
     }
 
@@ -76,7 +77,7 @@ class PartyControllerTest extends WebTestCase
         return array( array('/party','.party-new','/party/new'),
                       array('/party','.party-prop','/party/prop'),
                       array('/party','.battle','/battle'),
-                      array('/party/prop','.party-new','/party/new'),
+                      array('/party/prop?id=0','.party-new','/party/new'),
         );
     }
 

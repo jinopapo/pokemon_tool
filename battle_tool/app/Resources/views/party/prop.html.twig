@@ -1,18 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-    {% set party = '厨ポケ' %}
-    <h1 class="page-header"> {{ party }} </h1>
-    {% set pokemonItem = ['弱点保険','メガ','ドラゴンZ','メガ','きあいのタスキ','いのちのたま'] %}
-    {% set name = ['ギルガルド','ボーマンダ','ガブリアス','ギャラドス','ミミッキュ','カプコケコ'] %}
+    <h1 class="page-header"> {{ partyName }} </h1>
     {% for i in 0..5 %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                {{ name[i] }}
+                {{ party[i] }}
             </div>
             <div class="panel-body">
                 <div class="pokemon-item">
-                    持ち物@{{ pokemonItem[i] }}
+                    持ち物@{{ pokeItem[i] }}
                 </div>
                 <div class="status-param">
                     <div class="row">
