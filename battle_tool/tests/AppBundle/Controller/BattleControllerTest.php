@@ -75,18 +75,18 @@ class BattleControllerTest extends WebTestCase
     }
 
     public function urlProvider() {
-        return array( array('/battle'),
+        return array( array('/battle?id=0'),
                       array('/battle/status'),
         );
     }
 
     public function attrProvider() {
-        return array( array('/battle','battle-status'),
+        return array( array('/battle?id=0','battle-status'),
         );
     }
 
     public function linkProvider() {
-        return array( array('/battle','.battle-status','/battle/status'),
+        return array( array('/battle?id=0','.battle-status','/battle/status'),
          );
     }
 

@@ -12,7 +12,23 @@ class PartyController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('party/index.html.twig');
+        $party=[
+            ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド'],
+            ['ドサイドン','キテルグマ','ベトベトン[ア]','アシレーヌ','パルシェン','ガラガラ[ア]']
+        ];
+        $pokeItem=[
+            ['弱点保険','メガ','ドラゴンZ','メガ','きあいのタスキ','いのちのたま'],
+            ['たつじんの帯','ゴツゴツメット','アシレーヌZ','とつげきチョッキ','おうじゃのしるし','ふといホネ']
+        ];
+        $partyName=[
+            '厨ポケ',
+            'ヤロテスタント'
+        ];
+        return $this->render('party/index.html.twig',[
+            'party' => $party,
+            'pokeItem' => $pokeItem,
+            'partyName' => $partyName,
+        ]);
     }
 
     /**

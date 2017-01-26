@@ -12,30 +12,18 @@
 {% block content %}
     <h1 class="page-header"> パーティー一覧 </h1>
     <a class="btn btn-default party-new" href={{ path("party_new") }} role="button">パーティー追加</a>
+    {% for i in 0..partyName|length-1 %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            厨ポケ
+            {{ partyName[i] }}
         </div>
         <div class="panel-body">
             <div class="row">
+                {% for j in 0..5 %}
                 <div class="col-lg-2">
-                    <div class="poke-name">ギルガルド@弱点保険</div>
+                    <div class="poke-name">{{ party[i][j] }}@{{ pokeItem[i][j] }}</div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="poke-name">ボーマンダ@メガ</div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="poke-name">ガブリアス@ドラゴンZ</div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="poke-name">ギャラドス@メガ</div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="poke-name">ミミッキュ@きあいのタスキ</div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="poke-name">カプコケコ@いのちのたま</div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="panel-footer">
@@ -43,33 +31,5 @@
             <a class="battle" href="{{ path('battle_index') }}?id=0">このパーティで対戦</a>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            ヤロテスタント
-        </div>
-        <div class="panel-body">
-            <div class="col-lg-2">
-                <div class="poke-name">ドサイドン@たつじんの帯</div>
-            </div>
-            <div class="col-lg-2">
-                <div class="poke-name">キテルグマ@ゴツゴツメット</div>
-            </div>
-            <div class="col-lg-2">
-                <div class="poke-name">ベトベトン[ア]@とつげきチョッキ</div>
-            </div>
-            <div class="col-lg-2">
-                <div class="poke-name">アシレーヌ@アシレーヌZ</div>
-            </div>
-            <div class="col-lg-2">
-                <div class="poke-name">パルシェン@おうじゃのしるし</div>
-            </div>
-            <div class="col-lg-2">
-                <div class="poke-name">ガラガラ[ア]@ふといホネ</div>
-            </div>
-        </div>
-        <div class="panel-footer">
-            <a href={{ path("party_prop") }}>詳細</a>
-            <a href="{{ path('battle_index') }}?id=1">このパーティで対戦</a>
-        </div>
-    </div>
+    {% endfor %}
 {% endblock %}

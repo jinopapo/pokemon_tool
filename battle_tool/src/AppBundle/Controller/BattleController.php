@@ -18,8 +18,7 @@ class BattleController extends Controller
         $party = [
             ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']
         ];
-
-        if ( $id >= count($party))
+        if ( $id >= count($party) || $id == NULL)
         {
             throw $this->createNotFoundException('');
         }
