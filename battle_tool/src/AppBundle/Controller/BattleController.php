@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Party;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,16 +16,14 @@ class BattleController extends Controller
     public function indexAction(Request $request)
     {
         $id = $request->query->get('id');
-        $party = [
-            ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド'],
-            ['ドサイドン','キテルグマ','ベトベトン[ア]','アシレーヌ','パルシェン','ガラガラ[ア]']
-        ];
-        if ( $id >= count($party) || $id == NULL)
+        if ( $id == NULL)
         {
             throw $this->createNotFoundException('');
         }
+        $party = $this->getDoctrine()->getRepository(Party::class)->findPokemonById($id);
+
         return $this->render('battle/index.html.twig',[
-            'party' => $party[$id],
+            'party' => $party,
         ]);
     }
 

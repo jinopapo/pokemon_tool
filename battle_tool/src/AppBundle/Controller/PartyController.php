@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Party;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,29 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 class PartyController extends Controller
 {
 
-    const party=[
-        ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド'],
-        ['ドサイドン','キテルグマ','ベトベトン[ア]','アシレーヌ','パルシェン','ガラガラ[ア]']
-    ];
-
-    const pokeItem=[
-        ['弱点保険','メガ','ドラゴンZ','メガ','きあいのタスキ','いのちのたま'],
-        ['たつじんの帯','ゴツゴツメット','アシレーヌZ','とつげきチョッキ','おうじゃのしるし','ふといホネ']
-    ];
-
-    const partyName=[
-        '厨ポケ',
-        'ヤロテスタント'
-    ];
-
     /**
      * @Route("/party", name="party_index")
      */
     public function indexAction()
     {
-        $party=self::party;
-        $pokeItem=self::pokeItem;
-        $partyName=self::partyName;
+        $party = $this->getDoctrine()->getRepository(Party::class)->findAllPokemon();
+        $pokeItem = $this->getDoctrine()->getRepository(Party::class)->findAllItem();
+        $partyName = $this->getDoctrine()->getRepository(Party::class)->findAllName();
         return $this->render('party/index.html.twig',[
             'party' => $party,
             'pokeItem' => $pokeItem,
@@ -55,19 +41,19 @@ class PartyController extends Controller
     {
         $id = $request->query->get('id');
 
-        $party=self::party;
-        $pokeItem=self::pokeItem;
-        $partyName=self::partyName;
-
-        if ( $id >= count($party) || $id == NULL)
+        if ( $id == NULL)
         {
             throw $this->createNotFoundException('');
         }
 
+        $party = $this->getDoctrine()->getRepository(Party::class)->findPokemonById($id);
+        $pokeItem = $this->getDoctrine()->getRepository(Party::class)->findItemById($id);
+        $partyName = $this->getDoctrine()->getRepository(Party::class)->findNameById($id);
+
         return $this->render('party/prop.html.twig',[
-            'party' => $party[$id],
-            'pokeItem' => $pokeItem[$id],
-            'partyName' => $partyName[$id],
+            'party' => $party,
+            'pokeItem' => $pokeItem,
+            'partyName' => $partyName,
         ]);
     }
 }

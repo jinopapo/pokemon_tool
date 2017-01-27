@@ -10,7 +10,43 @@ namespace AppBundle\Repository;
  */
 class PartyRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findById(){
-        
+    const party=[
+        ['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド'],
+        ['ドサイドン','キテルグマ','ベトベトン[ア]','アシレーヌ','パルシェン','ガラガラ[ア]']
+    ];
+
+    const pokeItem=[
+        ['弱点保険','メガ','ドラゴンZ','メガ','きあいのタスキ','いのちのたま'],
+        ['たつじんの帯','ゴツゴツメット','アシレーヌZ','とつげきチョッキ','おうじゃのしるし','ふといホネ']
+    ];
+
+    const partyName=[
+        '厨ポケ',
+        'ヤロテスタント'
+    ];
+
+    public function findNameById($id){
+        return self::partyName[$id];
     }
+
+    public function findPokemonById($id){
+        return self::party[$id];
+    }
+
+    public function findItemById($id){
+        return self::pokeItem[$id];
+    }
+
+    public function findAllName(){
+        return self::partyName;
+    }
+
+    public function findAllPokemon(){
+        return self::party;
+    }
+
+    public function findAllItem(){
+        return self::pokeItem;
+    }
+
 }
