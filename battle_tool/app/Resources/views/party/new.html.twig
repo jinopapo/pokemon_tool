@@ -24,13 +24,18 @@
     
     <div class="tab-content">
         {% for i in 0..5 %}
+            {% set tab_status = "" %}
             {% if i == 0 %}
-                <div class="tab-pane active" id="tab{{i}}">
+                {% set tab_status = "tab-pane active" %}
             {% else %}
-                <div class="tab-pane" id="tab{{i}}">
+                {% set tab_status = "tab-pane" %}
             {% endif %}
-            test{{i}}
-                </div>
+            <div class={{ tab_status }} id="tab{{i}}">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+                test{{i}}
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

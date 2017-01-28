@@ -2,6 +2,10 @@
 
 namespace Tests\AppBundle\Controller;
 
+use AppBundle\Entity\Party;
+use AppBundle\Repository\PartyRepository;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Presistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class BattleControllerTest extends WebTestCase
