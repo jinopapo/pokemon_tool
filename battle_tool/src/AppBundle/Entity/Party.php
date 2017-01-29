@@ -66,5 +66,15 @@ class Party
     {
         return $this->id;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 

@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Party;
-#use AppBundle\Form\PokemonRegist;
+use AppBundle\Form\PokemonRegistType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -33,10 +33,7 @@ class PartyController extends Controller
     public function newAction()
     {
         $party = new Party();
-        #$form = $this->createForm(PokemonRegist::class, $party);
-        $form = $this->createFormBuilder($party)
-              ->add('id')
-              ->getForm();
+        $form = $this->createForm(PokemonRegistType::class, $party);
         return $this->render('party/new.html.twig',[
             'form' => $form->createView(),
         ]);

@@ -30,7 +30,7 @@
             {% else %}
                 {% set tab_status = "tab-pane" %}
             {% endif %}
-            <div class={{ tab_status }} id="tab{{i}}">
+            <div class="{{ tab_status }}" id="tab{{i}}">
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
                 {{ form_end(form) }}
