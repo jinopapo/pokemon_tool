@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Party;
+use AppBundle\Entity\PokemonOriginal;
 use AppBundle\Form\PokemonRegistType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -32,10 +33,20 @@ class PartyController extends Controller
      */
     public function newAction()
     {
-        $party = new Party();
-        $form = $this->createForm(PokemonRegistType::class, $party);
+        $form = [];
+        for($i=0;$i<6;$i++)
+        {
+            $pokemon = new PokemonOriginal();
+            $form = $this->createForm(PokemonRegistType::class, $pokemon);
+            $forms[] = $form;
+        }
         return $this->render('party/new.html.twig',[
-            'form' => $form->createView(),
+            'form1' => $forms[0]->createView(),
+            'form2' => $forms[1]->createView(),
+            'form3' => $forms[2]->createView(),
+            'form4' => $forms[3]->createView(),
+            'form5' => $forms[4]->createView(),
+            'form6' => $forms[5]->createView(),
         ]);
     }
 
