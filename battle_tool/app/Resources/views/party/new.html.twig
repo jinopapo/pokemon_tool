@@ -1,5 +1,18 @@
 {% extends '::base.html.twig' %}
 
+{% form_theme form1 _self %}
+{% form_theme form2 _self %}
+{% form_theme form3 _self %}
+{% form_theme form4 _self %}
+{% form_theme form4 _self %}
+{% form_theme form6 _self %}
+
+{% block form_row %}
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link href={{ asset("css/party/new.css") }} rel="stylesheet">
@@ -9,35 +22,45 @@
     {{ parent() }}
 {% endblock %}
 
+
 {% block content %}
-    <ul class="nav nav-tabs">
-        {% for i in 0..5 %}
-            {% set tab_status= ""  %}
-            {% if i == 0 %}
-                {% set tab_status= "active" %}
-            {% endif %}
-            <li class={{ tab_status }}>
-                <a href="#tab{{i}}" data-toggle="tab">{{i+1}}体目</a>
-            </li>
-        {% endfor %}
-    </ul>
-    
-    <div class="tab-content">
-        {% set forms = [form1,form2,form3,form4,form5,form6] %}
-        {% for i in 0..5 %}
-            {% set tab_status = "" %}
-            {% if i == 0 %}
-                {% set tab_status = "tab-pane active" %}
-            {% else %}
-                {% set tab_status = "tab-pane" %}
-            {% endif %}
-            <div class="{{ tab_status }}" id="tab{{i}}">
-                {{ form_start(forms[i]) }}
-                {{ form_widget(forms[i]) }}
-                {{ form_end(forms[i]) }}
-                test{{i}}
+    <h1 class="page-header"> パーティー追加 </h1>
+    {% set forms = [form1,form2,form3,form4,form5,form6] %}
+    {% for i in 0..5 %}
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ i+1 }}体目</div>
+        <div class="panel-body">
+            {{ form_start(forms[i]) }}
+            <div class="row">
+                <div class="col-lg-3">
+                    {{ form_row(forms[i].name) }}
+                </div>
+                <div class="col-lg-3">
+                    {{ form_row(forms[i].item) }}
+                </div>
             </div>
-        {% endfor %}
+            <div class="row">
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].h) }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].a) }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].b) }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].c) }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].d) }}
+                </div>
+                <div class="col-lg-2">
+                    {{ form_row(forms[i].s) }}
+                </div>
+            </div>
+        </div>
     </div>
+    {% endfor %}
 {% endblock %}
 
