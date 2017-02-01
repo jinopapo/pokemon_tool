@@ -8,7 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,23 +23,29 @@ class PokemonRegistType extends AbstractType
             ->add('item',TextType::class,[
                 'attr' => ['class' => 'form-control']
             ])
-            ->add('h',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('h',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ])
-            ->add('a',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('a',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ])
-            ->add('b',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('b',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ])
-            ->add('c',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('c',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ])
-            ->add('d',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('d',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ])
-            ->add('s',NumberType::class,[
-                'attr' => ['class' => 'form-control']
+            ->add('s',IntegerType::class,[
+                'attr' => ['class' => 'form-control'],
+                'data' => 0
             ]);
         /* ->add('summary', TextareaType::class)
             ->add('content', TextareaType::class)
