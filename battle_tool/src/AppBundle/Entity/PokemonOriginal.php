@@ -72,6 +72,15 @@ class PokemonOriginal
     }
 
     /**
+     * Set id
+     *
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Get name
      *
      * @return string
@@ -79,6 +88,34 @@ class PokemonOriginal
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set name
+     *
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get item
+     *
+     * @return string
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
+
+    /**
+     * Set item
+     *
+     */
+    public function setItem($item)
+    {
+        $this->item = $item;
     }
 
     /**
@@ -92,6 +129,15 @@ class PokemonOriginal
     }
 
     /**
+     * Set h
+     *
+     */
+    public function setH($h)
+    {
+        $this->h = $h;
+    }
+
+    /**
      * Get a
      *
      * @return int
@@ -99,6 +145,15 @@ class PokemonOriginal
     public function getA()
     {
         return $this->a;
+    }
+
+    /**
+     * Set a
+     *
+     */
+    public function setA($a)
+    {
+        $this->a = $a;
     }
 
     /**
@@ -112,6 +167,15 @@ class PokemonOriginal
     }
 
     /**
+     * Set b
+     *
+     */
+    public function setB()
+    {
+        $this->b = $b;
+    }
+
+    /**
      * Get c
      *
      * @return int
@@ -119,6 +183,15 @@ class PokemonOriginal
     public function getC()
     {
         return $this->c;
+    }
+
+    /**
+     * Set c
+     *
+     */
+    public function setC()
+    {
+        $this->c = $c;
     }
 
     /**
@@ -132,6 +205,15 @@ class PokemonOriginal
     }
 
     /**
+     * Get d
+     *
+     */
+    public function setD()
+    {
+        $this->d = $d;
+    }
+
+    /**
      * Get s
      *
      * @return int
@@ -142,14 +224,12 @@ class PokemonOriginal
     }
 
     /**
-     * Get item
+     * Set s
      *
-     * @return string
      */
-    public function getItem()
+    public function setS()
     {
-        return $this->item;
+        $this->s = $s;
     }
-
 }
 

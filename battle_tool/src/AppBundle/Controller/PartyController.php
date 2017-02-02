@@ -31,12 +31,19 @@ class PartyController extends Controller
     /**
      * @Route("/party/new", name="party_new")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $id = $request->query->get('id');
         $form = [];
+        if($id != NULL){
+            $party = $this->getDoctrine()->getRepository(Party::class)->findPokemonById($id);
+        }
         for($i=0;$i<6;$i++)
         {
             $pokemon = new PokemonOriginal();
+            if($id != NULL){
+                $pokemon->setName($party[$i]);
+            }
             $form = $this->createForm(PokemonRegistType::class, $pokemon);
             $forms[] = $form;
         }
@@ -70,6 +77,7 @@ class PartyController extends Controller
             'party' => $party,
             'pokeItem' => $pokeItem,
             'partyName' => $partyName,
+            'id' => $id,
         ]);
     }
 }
