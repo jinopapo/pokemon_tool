@@ -37,12 +37,14 @@ class PartyController extends Controller
         $form = [];
         if($id != NULL){
             $party = $this->getDoctrine()->getRepository(Party::class)->findPokemonById($id);
+            $item = $this->getDoctrine()->getRepository(Party::class)->findItemById($id);
         }
         for($i=0;$i<6;$i++)
         {
             $pokemon = new PokemonOriginal();
             if($id != NULL){
                 $pokemon->setName($party[$i]);
+                $pokemon->setItem($item[$i]);
             }
             $form = $this->createForm(PokemonRegistType::class, $pokemon);
             $forms[] = $form;
