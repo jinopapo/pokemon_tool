@@ -57,9 +57,25 @@ class PartyControllerTest extends WebTestCase
         $this->assertEquals($links, $path);
     }
 
+    /**
+     * @depends testIsSuccessful
+     * @dataProvider partyNewParamProvider
+     */
+    public function testParam($url,$attr,$datas)
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', $url);
+        $path = $crawler->filter($attr);
+        $path = $path->each(function ($node, $i){
+            return $node->attr('value');
+        });
+        $this->assertEquals($datas, $path);
+    }
+
     public function urlProvider() {
         return array( array('/party',200),
                       array('/party/new',200),
+                      array('/party/new?id=0',200),
                       array('/party/prop?id=0',200),
                       array('/party/prop',404),
         );
@@ -78,6 +94,12 @@ class PartyControllerTest extends WebTestCase
                       array('/party','.party-prop','/party/prop'),
                       array('/party','.battle','/battle'),
                       array('/party/prop?id=0','.party-new','/party/new'),
+        );
+    }
+
+    public function partyNewParamProvider() {
+        return array(
+            array('/party/new?id=0','#pokemon_regist_name',['ガブリアス','ボーマンダ','ギャラドス','ミミッキュ','カプコケコ','ギルガルド']),
         );
     }
 
