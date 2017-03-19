@@ -24,14 +24,23 @@ class BattleController extends Controller
 
         return $this->render('battle/index.html.twig',[
             'party' => $party,
+            'id' => $id,
         ]);
     }
 
     /**
      * @Route("/battle/status", name="battle_status")
      */
-    public function statusAction()
+    public function statusAction(Request $request)
     {
-        return $this->render('battle/status.html.twig');
+        $id = $request->query->get('id');
+        if ( $id == NULL)
+        {
+            throw $this->createNotFoundException('');
+        }
+        $myParty = $this->getDoctrine()->getRepository(Party::class)->findPokemonById($id);
+        return $this->render('battle/status.html.twig',[
+            'myParty' => $myParty,
+        ]);
     }
 }

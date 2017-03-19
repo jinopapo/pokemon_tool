@@ -17,7 +17,7 @@
                     </div>
                     <div class="panel-body">
                         {% set party = [
-                            ['ガブリアス','ボーマンダ','カプコケコ','ギャラドス','ミミッキュ','ギルガルド'],
+                            myParty,
                             ['カプレヒレ','カプコケコ','カプテテフ','カプブルル','マッシブーン','ウツロイド']] %}
                         {% set select =[
                             [2,1,1,0,0,0],
@@ -51,7 +51,7 @@
             </div>
         {% endfor %}
     </div>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs"> 
         {% set selected_party=['ガブリアス','ボーマンダ','カプコケコ'] %}
         {% for i in 0..2 %}
             {% set tab_status= ""  %}
